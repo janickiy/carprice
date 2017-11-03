@@ -24,22 +24,7 @@
 	<script src="./js/jquery.cookie.js"></script>
 	<script src="./templates/assets/vendor/metisMenu/metisMenu.js"></script>
 
-	<script src="./js/dist/tablesaw.js"></script>
-	<script src="./js/dist/tablesaw-init.js"></script>
-	<link rel="stylesheet" href="../js/dist/tablesaw.css">
 
-	<script>
-        var TablesawConfig = {
-            i18n: {
-                swipePreviousColumn: "The column before",
-                swipeNextColumn: "The column after"
-            },
-            swipe: {
-                horizontalThreshold: 45,
-                verticalThreshold: 45
-            }
-        };
-	</script>
 
 </head>
 <body>

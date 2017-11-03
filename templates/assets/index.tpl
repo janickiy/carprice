@@ -36,5 +36,21 @@
     <!-- END cars_row -->
     </tbody>
 </table>
+<script src="./js/dist/tablesaw.js"></script>
+<script src="./js/dist/tablesaw-init.js"></script>
+<link rel="stylesheet" href="./js/dist/tablesaw.css">
+
+<script>
+    var TablesawConfig = {
+        i18n: {
+            swipePreviousColumn: "The column before",
+            swipeNextColumn: "The column after"
+        },
+        swipe: {
+            horizontalThreshold: 45,
+            verticalThreshold: 45
+        }
+    };
+</script>
 
 <!-- INCLUDE footer.tpl -->
