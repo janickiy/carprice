@@ -15,6 +15,7 @@ $errors = [];
 if (Core_Array::getRequest('action')) {
     $name = trim(htmlspecialchars(Core_Array::getPost('name')));
     $url = trim(Core_Array::getPost('url'));
+    $city = Core_Array::getPost('city');
 
     if (empty($name)) $errors[] = 'Введите название автосалона!';
     if (!empty($url)) {
@@ -28,6 +29,7 @@ if (Core_Array::getRequest('action')) {
             'id' => 0,
             'name' => $name,
             'url'  => parse_url($url, PHP_URL_HOST),
+            'city' => $city
         ];
 
         if ($data->addShop($fields)) {

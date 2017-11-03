@@ -11,6 +11,7 @@ class Model_add_url_price extends Model
     public function getShopId($url)
     {
         $url = parse_url($url, PHP_URL_HOST);
+        if ((substr($url, 0, 4)) == "www.") $url = str_replace('www.','',$url);
         $query = "SELECT id FROM " . core::database()->getTableName('shops') . " WHERE url LIKE '%" . $url . "%'";
         $result = core::database()->querySQL($query);
 

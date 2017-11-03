@@ -10,8 +10,16 @@
     </div>
 
     <div class="form-group">
-        <label for="password_again">URL</label>
+        <label for="url">Сайт</label>
         <input class="form-control" type="text" name="url">
+    </div>
+
+    <div class="form-group">
+        <label for="city">Город</label>
+        <select name="city" class="form-control">
+            <option value="1">Москва</option>
+            <option value="2">Санкт-Петербург</option>
+        </select>
     </div>
 
     <input type="submit" class="btn btn-success" name="action" value="добавить">

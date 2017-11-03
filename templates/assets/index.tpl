@@ -14,5 +14,27 @@
     </div>
 </div>
 
+<table width="100%" class="table table-striped table-bordered table-hover tablesaw-swipe"  data-tablesaw-mode="swipe">
+    <thead>
+    <tr>
+        <th class="title" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Марка</th>
+        <th class="title" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Модель</th>
+        <!-- BEGIN shops_header_row -->
+        <th><a target="_blank" href="http://${URL}">${NAME}</a></th>
+        <!-- END shops_header_row -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- BEGIN cars_row -->
+    <tr>
+        <td class="title">${CAR}</td>
+        <td class="title">${MODEL}</td>
+        <!-- BEGIN shops_row -->
+        <td><!-- IF '${PRICE}' != '' -->  ${PRICE}<!-- ELSE -->-<!-- END IF --></td>
+        <!-- END shops_row -->
+    </tr>
+    <!-- END cars_row -->
+    </tbody>
+</table>
 
 <!-- INCLUDE footer.tpl -->

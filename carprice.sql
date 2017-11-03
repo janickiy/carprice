@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 02 2017 г., 16:10
+-- Время создания: Ноя 03 2017 г., 11:35
 -- Версия сервера: 10.1.28-MariaDB
 -- Версия PHP: 7.1.10
 
@@ -509,32 +509,21 @@ CREATE TABLE `rfq_price` (
 --
 
 INSERT INTO `rfq_price` (`id`, `shop_id`, `url`, `price`, `model_id`, `created_at`, `updated_at`, `status`) VALUES
-(1, 1, 'http://renamax-auto.ru/auto/changan', 0, 10, '2017-11-02 14:23:55', '0000-00-00 00:00:00', 'no'),
-(2, 1, 'http://renamax-auto.ru/auto/changan', 0, 13, '2017-11-02 14:25:26', '0000-00-00 00:00:00', 'no'),
-(3, 1, 'http://renamax-auto.ru/auto/changan', 0, 14, '2017-11-02 14:30:07', '0000-00-00 00:00:00', 'no'),
-(4, 27, 'http://www.cardex.city/catalog/changan/cs35/', 0, 10, '2017-11-02 14:32:46', '0000-00-00 00:00:00', 'no'),
-(5, 3, 'http://www.krost-auto.ru/auto/changan/', 0, 10, '2017-11-02 14:37:41', '0000-00-00 00:00:00', 'no'),
-(6, 3, 'http://www.krost-auto.ru/auto/changan/', 0, 10, '2017-11-02 14:38:31', '0000-00-00 00:00:00', 'no'),
-(7, 3, 'http://www.krost-auto.ru/auto/changan/', 0, 14, '2017-11-02 14:39:00', '0000-00-00 00:00:00', 'no'),
-(8, 30, 'http://сильвер-авто.рф/new-auto/changan/', 0, 10, '2017-11-02 15:34:58', '0000-00-00 00:00:00', 'no'),
-(9, 29, 'http://сильвер-авто.рф/new-auto/changan/', 0, 13, '2017-11-02 15:36:28', '0000-00-00 00:00:00', 'no'),
-(10, 30, 'http://сильвер-авто.рф/new-auto/changan/', 0, 14, '2017-11-02 15:37:08', '0000-00-00 00:00:00', 'no'),
-(11, 30, 'http://сильвер-авто.рф/new-auto/changan/', 0, 14, '2017-11-02 15:41:28', '0000-00-00 00:00:00', 'no'),
-(12, 5, 'https://www.masmotors.ru/catalog/changan', 0, 10, '2017-11-02 15:49:14', '0000-00-00 00:00:00', 'no'),
-(13, 5, 'https://www.masmotors.ru/catalog/changan', 0, 376, '2017-11-02 15:50:55', '0000-00-00 00:00:00', 'no'),
-(14, 5, 'https://www.masmotors.ru/catalog/changan', 0, 10, '2017-11-02 15:51:22', '0000-00-00 00:00:00', 'no'),
-(15, 5, 'https://www.masmotors.ru/catalog/changan', 0, 12, '2017-11-02 15:52:21', '0000-00-00 00:00:00', 'no'),
-(16, 5, 'https://www.masmotors.ru/catalog/changan', 0, 13, '2017-11-02 15:54:03', '0000-00-00 00:00:00', 'no'),
-(17, 5, 'https://www.masmotors.ru/catalog/changan', 0, 14, '2017-11-02 15:54:31', '0000-00-00 00:00:00', 'no'),
-(18, 6, 'https://www.saloncentr.ru/catalog/changan/alsvin-v7', 0, 376, '2017-11-02 15:57:48', '0000-00-00 00:00:00', 'no'),
-(19, 6, 'https://www.saloncentr.ru/catalog/changan/cs35', 0, 10, '2017-11-02 15:59:09', '0000-00-00 00:00:00', 'no'),
-(20, 6, 'https://www.saloncentr.ru/catalog/changan/cs75', 0, 11, '2017-11-02 16:00:16', '0000-00-00 00:00:00', 'no'),
-(21, 6, 'https://www.saloncentr.ru/catalog/changan/eado', 0, 13, '2017-11-02 16:01:29', '0000-00-00 00:00:00', 'no'),
-(22, 6, 'https://www.saloncentr.ru/catalog/changan/raeton', 0, 14, '2017-11-02 16:03:06', '0000-00-00 00:00:00', 'no'),
-(23, 7, 'https://riaavto.ru/changan/raeton', 0, 14, '2017-11-02 16:04:45', '0000-00-00 00:00:00', 'no'),
-(24, 7, 'https://riaavto.ru/changan/eado-xt', 0, 12, '2017-11-02 16:08:26', '0000-00-00 00:00:00', 'no'),
-(25, 7, 'https://riaavto.ru/changan/eado-xt', 0, 13, '2017-11-02 16:09:18', '0000-00-00 00:00:00', 'no'),
-(26, 31, 'https://mx.riaavto.ru/raeton', 0, 14, '2017-11-02 16:10:30', '0000-00-00 00:00:00', 'no');
+(18, 6, 'https://www.saloncentr.ru/catalog/changan/alsvin-v7', 489000, 376, '2017-11-02 15:57:48', '0000-00-00 00:00:00', 'no'),
+(19, 6, 'https://www.saloncentr.ru/catalog/changan/cs35', 639900, 10, '2017-11-02 15:59:09', '0000-00-00 00:00:00', 'no'),
+(20, 6, 'https://www.saloncentr.ru/catalog/changan/cs75', 660000, 11, '2017-11-02 16:00:16', '0000-00-00 00:00:00', 'no'),
+(21, 6, 'https://www.saloncentr.ru/catalog/changan/eado', 400000, 13, '2017-11-02 16:01:29', '0000-00-00 00:00:00', 'no'),
+(22, 6, 'https://www.saloncentr.ru/catalog/changan/raeton', 1179000, 14, '2017-11-02 16:03:06', '0000-00-00 00:00:00', 'no'),
+(23, 7, 'https://riaavto.ru/changan/raeton', 1179000, 14, '2017-11-02 16:04:45', '0000-00-00 00:00:00', 'no'),
+(24, 7, 'https://riaavto.ru/changan/eado-xt', 400000, 12, '2017-11-02 16:08:26', '0000-00-00 00:00:00', 'no'),
+(25, 7, 'https://riaavto.ru/changan/eado-xt', 400000, 13, '2017-11-02 16:09:18', '0000-00-00 00:00:00', 'no'),
+(26, 7, 'https://riaavto.ru/changan/raeton', 1179000, 14, '2017-11-02 16:10:30', '0000-00-00 00:00:00', 'no'),
+(27, 1, 'http://renamax-auto.ru/auto/changan/cs35', 619000, 10, '2017-11-03 08:39:28', '0000-00-00 00:00:00', 'no'),
+(28, 1, 'http://renamax-auto.ru/auto/changan/Eado', 380000, 13, '2017-11-03 08:40:13', '0000-00-00 00:00:00', 'no'),
+(29, 1, 'http://renamax-auto.ru/auto/changan/Raeton', 939000, 14, '2017-11-03 08:40:42', '0000-00-00 00:00:00', 'no'),
+(30, 2, 'http://www.cardex.su/catalog/changan/cs35/', 629000, 10, '2017-11-03 08:43:20', '0000-00-00 00:00:00', 'no'),
+(31, 2, 'http://www.cardex.su/catalog/changan/eado/', 390000, 13, '2017-11-03 08:48:46', '0000-00-00 00:00:00', 'no'),
+(32, 2, 'http://www.cardex.su/catalog/changan/raeton/', 0, 14, '2017-11-03 08:50:00', '0000-00-00 00:00:00', 'no');
 
 -- --------------------------------------------------------
 
@@ -545,42 +534,41 @@ INSERT INTO `rfq_price` (`id`, `shop_id`, `url`, `price`, `model_id`, `created_a
 CREATE TABLE `rfq_shops` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` tinyint(2) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `rfq_shops`
 --
 
-INSERT INTO `rfq_shops` (`id`, `name`, `url`) VALUES
-(1, 'Renamax', 'renamax-auto.ru'),
-(2, 'Cardex', 'cardex.su'),
-(3, 'КРОСТ', 'krost-auto.ru'),
-(4, 'Автоцентр &quot;GUTA MOTOTRS&quot;', 'guta-motors.ru'),
-(5, 'Автосалон МАС Моторс', 'www.masmotors.ru'),
-(6, 'АВТОСАЛОН &quot;ЦЕНТРАЛЬНЫЙ&quot;', 'www.saloncentr.ru'),
-(7, 'Автосалон RIA AVTO', 'riaavto.ru'),
-(8, 'Автосалон МАС Моторс', 'www.masmotors.ru'),
-(9, 'ООО «DARCARS»', 'darcars.ru'),
-(10, 'ОО «Sky–Avto»', 'sky-avto.ru'),
-(13, 'Пилот Авто', 'pilot-avto77.ru'),
-(12, 'ROSKO', 'www.rosko-auto.ru'),
-(27, 'www.cardex.city', 'www.cardex.city'),
-(14, 'Автосалон &quot;ALTERA&quot;', 'altera-auto.ru'),
-(15, 'Компания Exist Auto', 'exist-auto.moscow'),
-(16, 'Гамма Моторс', 'gamma-motors.spb.ru'),
-(17, 'Гамма Моторс', 'gamma-motors.spb.ru'),
-(18, 'Автосалон &quot;OHTA AUTO&quot;', 'ohta-auto.ru'),
-(19, 'Автоцентр &quot;Смольный&quot;', 'www.asmolny.ru'),
-(20, 'Компанией «Астория Моторс»', 'astoriamotors.ru'),
-(21, 'kremlin-auto', 'kremlin-auto.ru'),
-(22, 'Автоцентр &quot;АвтоПОРТ&quot;', 'autoports.ru'),
-(23, 'askona-motors', 'askona-motors.ru'),
-(24, 'ОХта центр', 'autocentrohta.ru'),
-(25, 'Авант Моторс', 'avant-motors.ru'),
-(26, 'Автоцентр «АЛЬФАПОИНТ»', 'alfapoint.spb.ru'),
-(31, 'mx.riaavto.ru', 'mx.riaavto.ru'),
-(30, 'сильвер-авто.рф', 'сильвер-авто.рф');
+INSERT INTO `rfq_shops` (`id`, `name`, `url`, `city`) VALUES
+(1, 'Renamax', 'renamax-auto.ru', 1),
+(2, 'Cardex', 'cardex.su', 1),
+(3, 'КРОСТ', 'krost-auto.ru', 1),
+(4, 'Автоцентр &quot;GUTA MOTOTRS&quot;', 'guta-motors.ru', 1),
+(5, 'Автосалон МАС Моторс', 'www.masmotors.ru', 1),
+(6, 'АВТОСАЛОН &quot;ЦЕНТРАЛЬНЫЙ&quot;', 'www.saloncentr.ru', 1),
+(7, 'Автосалон RIA AVTO', 'riaavto.ru', 1),
+(33, 'Автоцентр &quot;Приморский&quot;', 'primavto.ru', 2),
+(9, 'ООО «DARCARS»', 'darcars.ru', 1),
+(10, 'ОО «Sky–Avto»', 'sky-avto.ru', 1),
+(13, 'Пилот Авто', 'pilot-avto77.ru', 1),
+(12, 'ROSKO', 'www.rosko-auto.ru', 1),
+(27, 'www.cardex.city', 'www.cardex.city', 1),
+(14, 'Автосалон &quot;ALTERA&quot;', 'altera-auto.ru', 1),
+(15, 'Компания Exist Auto', 'exist-auto.moscow', 1),
+(16, 'Гамма Моторс', 'gamma-motors.spb.ru', 2),
+(18, 'Автосалон &quot;OHTA AUTO&quot;', 'ohta-auto.ru', 2),
+(19, 'Автоцентр &quot;Смольный&quot;', 'www.asmolny.ru', 2),
+(20, 'Компанией «Астория Моторс»', 'astoriamotors.ru', 2),
+(21, 'kremlin-auto', 'kremlin-auto.ru', 2),
+(22, 'Автоцентр &quot;АвтоПОРТ&quot;', 'autoports.ru', 2),
+(23, 'askona-motors', 'askona-motors.ru', 2),
+(24, 'ОХта центр', 'autocentrohta.ru', 2),
+(25, 'Авант Моторс', 'avant-motors.ru', 2),
+(26, 'Автоцентр «АЛЬФАПОИНТ»', 'alfapoint.spb.ru', 2),
+(30, 'сильвер-авто.рф', 'сильвер-авто.рф', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -642,13 +630,13 @@ ALTER TABLE `rfq_model`
 -- AUTO_INCREMENT для таблицы `rfq_price`
 --
 ALTER TABLE `rfq_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT для таблицы `rfq_shops`
 --
 ALTER TABLE `rfq_shops`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

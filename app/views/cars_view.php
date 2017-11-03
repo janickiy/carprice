@@ -17,8 +17,6 @@ $tpl->assign('TITLE', 'Автомобили');
 
 $errors = [];
 
-
-
 if (Core_Array::getRequest('action')) {
     if ($data->deleteModels( Core_Array::getRequest('activate'))) {
         $success_msg =  'Выбранные модели удалены';
