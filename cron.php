@@ -35,8 +35,10 @@ while($row = $result->fetch_array()) {
 		    echo $row['template'];
 			
             $price = $html->find($row['template'], $row['pos'] ? $row['pos'] : 0)->innertext;
-
 			if ($price) {
+                $price = strip_tags($price);
+                $price = preg_replace("/[^0-9]/", '', $price);
+
 				$update = "UPDATE " . $ConfigDB["prefix"] . "price SET price='" . $price . "', updated_at=NOW(), status='yes' WHERE id=" . $row['id'];
 				$dbh->query($update);
 			}
@@ -48,3 +50,4 @@ while($row = $result->fetch_array()) {
 }
 
 $dbh->close();
+
