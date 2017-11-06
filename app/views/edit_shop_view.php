@@ -18,29 +18,24 @@ if (Core_Array::getRequest('action')) {
     $template = trim(Core_Array::getPost('template'));
     $pos = trim(Core_Array::getPost('pos'));
     $city = Core_Array::getPost('city');
+    $id = Core_Array::getRequest('id');
 
     if (empty($name)) $errors[] = 'Введите название автосалона!';
-    if (!empty($url)) {
-        if (Main::checkUrl($url)) $errors[] = 'URL адрес введен неверно!';
-    }
-
-    if ($data->checkExistShop($name, $url)) $errors[] = 'Этот автосалон уже был добавлен!';
 
     if (empty($errors)) {
         $fields = [
-            'id' => 0,
             'name' => $name,
-            'url'  => parse_url($url, PHP_URL_HOST),
+            'url'  => $url,
             'city' => $city,
             'template' => $template,
-            'pos' => Core_Array::getPost('pos') ? Core_Array::getPost('pos') : 0,
+            'pos' => $pos,
         ];
 
-        if ($data->addShop($fields)) {
+        if ($data->editShop($fields,$id)) {
             header("Location: ./?t=shops");
             exit();
         } else {
-            $errors[] = 'Ошибка веб приложения! Действия не были выполнены.';
+            $errors[] = 'Ошибка веб приложения! Действия не были выполнены';
         }
     }
 }
@@ -51,11 +46,14 @@ include_once core::pathTo('extra', 'menu.php');
 $tpl->assign('TITLE_PAGE', 'Добавление автосалона');
 $tpl->assign('TITLE', 'Добавление автосалона');
 
-$tpl->assign('NAME', Core_Array::getRequest('name'));
-$tpl->assign('URL', Core_Array::getRequest('url'));
-$tpl->assign('TEMPLATE', Core_Array::getRequest('template'));
-$tpl->assign('POS', Core_Array::getRequest('pos'));
-$tpl->assign('CITY', Core_Array::getRequest('city'));
+$row = $data->getShopById(Core_Array::getRequest('id'));
+
+$tpl->assign('NAME', Core_Array::getPost('name') ? Core_Array::getPost('name')  : $row['name']);
+$tpl->assign('URL', Core_Array::getPost('url') ? Core_Array::getPost('url')  : $row['url']);
+$tpl->assign('TEMPLATE', Core_Array::getPost('template') ? Core_Array::getPost('template')  : $row['template']);
+$tpl->assign('POS', Core_Array::getPost('pos') ? Core_Array::getPost('pos')  : $row['pos']);
+$tpl->assign('CITY', Core_Array::getPost('city') ? Core_Array::getPost('city')  : $row['city']);
+
 
 if (!empty($errors)) {
     $errorBlock = $tpl->fetch('show_errors');

@@ -15,7 +15,11 @@ include_once core::pathTo('extra', 'menu.php');
 $tpl->assign('TITLE_PAGE', 'Цены');
 $tpl->assign('TITLE', 'Цены');
 
-$city = Core_Array::getRequest(city) ? Core_Array::getRequest(city) : 1;
+$city = isset($_COOKIE["city"]) && $_COOKIE["city"] ? $_COOKIE["city"] : 1;
+$search = urldecode(Core_Array::getRequest('search'));
+$tpl->assign('ACTION', $_SERVER['REQUEST_URI']);
+$tpl->assign('CITY', $city);
+$tpl->assign('SEARCH', $search);
 
 foreach ($data->getShops($city) as $row) {
     $rowShop = $tpl->fetch('shops_header_row');
@@ -24,7 +28,9 @@ foreach ($data->getShops($city) as $row) {
     $tpl->assign('shops_header_row', $rowShop);
 }
 
-foreach ($data->getModels() as $row) {
+$search = Core_Array::getRequest('search');
+
+foreach ($data->getModels($search) as $row) {
     $rowCar = $tpl->fetch('cars_row');
     $rowCar->assign('CAR', $row['car']);
     $rowCar->assign('MODEL', $row['model']);
@@ -39,10 +45,5 @@ foreach ($data->getModels() as $row) {
 
     $tpl->assign('cars_row', $rowCar);
 }
-
-
-
-
-
 
 $tpl->display();

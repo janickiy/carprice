@@ -5,12 +5,18 @@
 <div class="row">
     <div class="col-lg-12">
         <form class="form-inline" style="margin-bottom: 20px; margin-top: 20px;" method="GET" name="searchform" action="${ACTION}">
-            <input type="hidden" name="t" value="subscribers">
             <div class="form-group">
-                <input class="form-control form-warning input-sm" type="text" name="search" value="${SEARCH}" placeholder="">
+                <input class="form-control form-warning input-sm" type="text" name="search" value="${SEARCH}" placeholder="модель или марка">
             </div>
             <input class="btn btn-info" type="submit" value="Найти">
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <label class="radio-inline"> <input class="CityChange" type="radio" value="1" <!-- IF '${CITY}' == '1' -->checked="checked"<!-- END IF --> name="city">Москва </label>
+        <label class="radio-inline"> <input class="CityChange" type="radio" value="2" <!-- IF '${CITY}' == '2' -->checked="checked"<!-- END IF --> name="city">Санкт-Петербург </label>
     </div>
 </div>
 
@@ -51,6 +57,13 @@
             verticalThreshold: 45
         }
     };
+
+    $(document).on( "change", ".CityChange", function() {
+        var city = $('input[name=city]:checked').val();
+        document.cookie = "city=" + city;
+        location.reload();
+    });
+
 </script>
 
 <!-- INCLUDE footer.tpl -->

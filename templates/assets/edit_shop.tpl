@@ -4,6 +4,7 @@
 <!-- INCLUDE errors.tpl -->
 <!-- INCLUDE success.tpl -->
 <form method="POST" action="${ACTION}">
+    <input type="hidden" name="id" value="${ID}">
     <div class="form-group">
         <label for="name">Название</label>
         <input class="form-control" type="text" value="${NAME}" name="name">
@@ -32,7 +33,7 @@
         </select>
     </div>
 
-    <input type="submit" class="btn btn-success" name="action" value="добавить">
+    <input type="submit" class="btn btn-success" name="action" value="редактировать">
 </form>
 
 <!-- INCLUDE footer.tpl -->

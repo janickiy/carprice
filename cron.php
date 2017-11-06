@@ -26,30 +26,24 @@ if (!flock($fh, LOCK_EX | LOCK_NB)){
 $query = "SELECT *, p.id AS id, p.url AS url FROM " . $ConfigDB["prefix"] . "price p LEFT JOIN " . $ConfigDB["prefix"] . "shops s ON s.id=p.shop_id";
 $result = $dbh->query($query);
 
-
 while($row = $result->fetch_array()) {
     if ($row['url'] && $row['template']) {
-
 	    $html = new simple_html_dom($row['url']);
-		
-		
 
-        if($html->find($row['template'], 0)) {
+        if($html->find($row['template'], $row['pos'] ? $row['pos'] : 0)) {
 			echo $row['url'];
-		echo $row['template'];
+		    echo $row['template'];
 			
-            $price = $html->find($row['template'], 0)->innertext;
+            $price = $html->find($row['template'], $row['pos'] ? $row['pos'] : 0)->innertext;
 
 			if ($price) {
-				$update = "UPDATE " . $ConfigDB["prefix"] . "price SET price='" . $price . "', updated_at = NOW(), status='yes' WHERE id=" . $row['id'];
+				$update = "UPDATE " . $ConfigDB["prefix"] . "price SET price='" . $price . "', updated_at=NOW(), status='yes' WHERE id=" . $row['id'];
 				$dbh->query($update);
-			}            
-
-           
+			}
         }  
 		
 		 $html->clear();
-            unset($html);
+         unset($html);
     }
 }
 
