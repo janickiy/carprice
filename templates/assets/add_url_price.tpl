@@ -30,9 +30,11 @@
 </style>
 
 <script>
-    $(function(){
-        $('.who').bind("change keyup input click", function() {
-            if(this.value.length >= 2){
+    $(document).ready(function() {
+        $(document).on("change keyup input click", "input[id^='search_']", function() {
+
+            if(this.value.length >= 2) {
+                var itemId = $(this).attr('data-item');
                 $.ajax({
                     type: 'GET',
                     url: './?t=ajax&action=search_model&model=' + this.value,
@@ -41,14 +43,14 @@
                         if (data != null && data.item != null) {
                             var html = '';
                             for(var i=0; i < data.item.length; i++) {
-                                html += '<li data-item="' + data.item[i].id + '">' + data.item[i].name + '</li>';
+                                html += '<li data-item-id="' + itemId + '" data-item="' + data.item[i].id + '">' + data.item[i].name + '</li>';
                             }
 
                             console.log(html);
                             if (html != '')
-                                $(".search_result").html(html).fadeIn();
+                                $("#search_result_" + itemId).html(html).fadeIn();
                             else
-                                $(".search_result").fadeOut();
+                                $("#search_result_" + itemId).fadeOut();
                         }
                     }
                 })
@@ -59,13 +61,33 @@
             $(".who").blur();
         })
 
-        $(".search_result").on("click", "li", function(){
+        $(document).on("click", "ul[id^='search_result_'] li", function(){
             var text = $(this).html();
             var item = $(this).attr('data-item');
-            $('#search').val(text);
-            $('#model_id').val(item);
-            $(".search_result").fadeOut();
+            var itemId = $(this).attr('data-item-id');
+            $('#search_' + itemId).val(text);
+            $('#model_id_' + itemId).val(item);
+            $("#search_result_" + itemId).fadeOut();
         })
+
+        $(document).on( "click", '#add_field', function() {
+            var lengthBlock = $('div.row_block').length;
+
+            var html = '<div class="row_block">';
+            html += '<input id="model_id_' + lengthBlock + '" type="hidden" name="model_id[]" value="">';
+            html += '<div class="form-group">';
+            html += '<label for="referal">Введите марку или модель</label>';
+            html += '<input id="search_' + lengthBlock + '" type="text" name="referal[]" placeholder="найти" value="" data-item="' + lengthBlock + '" class="who form-control"  autocomplete="off">';
+            html += '<ul id="search_result_' + lengthBlock + '" class="search_result"></ul>';
+            html += '</div>';
+            html += '<div class="form-group">';
+            html += '<label for="url">URL адрес страницы с ценой</label>';
+            html += '<input type="text" name="url[]" value="" class="form-control" autocomplete="off">';
+            html += '</div>';
+            html += '</div>';
+
+            $('#priceForm').prepend(html);
+        });
 
     })
 </script>
@@ -73,20 +95,25 @@
 <!-- INCLUDE errors.tpl -->
 <!-- INCLUDE success.tpl -->
 
-<form method="POST" action="${ACTION}">
-<input id="model_id" type="hidden" name="model_id" value="">
+<form id="priceForm" method="POST" action="${ACTION}">
+
+    <div class="row_block">
+        <input id="model_id_0" type="hidden" name="model_id[]" value="">
+        <div class="form-group">
+            <label for="referal">Введите марку или модель</label>
+            <input id="search_0" type="text" name="referal[]" placeholder="найти" value="" data-item="0" class="who form-control"  autocomplete="off">
+            <ul id="search_result_0" class="search_result"></ul>
+        </div>
+
+        <div class="form-group">
+           <label for="url">URL адрес страницы с ценой</label>
+           <input type="text" name="url[]" value="" class="form-control" autocomplete="off">
+        </div>
+    </div>
+
     <div class="form-group">
-        <label for="referal">Введите марку или модель</label>
-        <input id="search" type="text" name="referal" placeholder="найти" value="" class="who form-control"  autocomplete="off">
-        <ul class="search_result"></ul>
+        <input class="btn btn-default" id="add_field" type="button" value=" + ">
     </div>
-
-    <div class="form-group
-      <label for="url">URL адрес страницы с ценой</label>
-      <input type="text" name="url" value="" class="form-control" autocomplete="off">
-    </div>
-
-
 
     <input type="submit" class="btn btn-success" name="action" value="добавить">
 </form>

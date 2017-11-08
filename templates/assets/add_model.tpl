@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <input class="btn btn-default" id="add_field" type="button" value=" + ">
-     </div>
+    </div>
 
     <input type="submit" class="btn btn-success" name="action" value="добавить">
 </form>

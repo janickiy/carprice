@@ -22,6 +22,36 @@ if (Core_Array::getRequest('action')) {
     $url = trim(Core_Array::getPost('url'));
     $model_id = Core_Array::getPost('model_id');
 
+    if (count(Core_Array::getPost('referal')) > 0) {
+        for($i = 0; $i < count(Core_Array::getPost('referal')); $i++) {
+            $name = Core_Array::getPost('referal');
+            $name[$i] = trim($name[$i]);
+            $url = Core_Array::getPost('url');
+            $url[$i] = trim($url[$i]);
+            $model_id = Core_Array::getPost('model_id');
+
+            if (!empty($model_id[$i]) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/', $url[$i])) {
+                $shop_id = $data->getShopId($url[$i]);
+
+               if ($data->checkExistPrice($shop_id,$model_id[$i]) === false) {
+                   $fields = [
+                       'id' => 0,
+                       'shop_id' => $shop_id,
+                       'url' => $url[$i],
+                       'model_id' => $model_id[$i],
+                       'created_at' => date("Y-m-d H:i:s"),
+                       'status' => 'no',
+                   ];
+                   $data->addUrlPrice($fields);
+               }
+            }
+        }
+    }
+
+    header("Location: ./");
+    exit();
+
+    /*
     if (empty($url)) $errors[] = 'Укажите URL адрес страницы с ценой!';
     if (empty($model_id)) $errors[] = 'Введите марку или модель!';
 
@@ -48,6 +78,7 @@ if (Core_Array::getRequest('action')) {
             $errors[] = 'Ошибка веб приложения! Данные не были добавлены';
         }
     }
+    */
 }
 
 if (!empty($errors)) {

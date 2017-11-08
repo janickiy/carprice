@@ -36,7 +36,7 @@
         <td class="title">${CAR}</td>
         <td class="title">${MODEL}</td>
         <!-- BEGIN shops_row -->
-        <td><!-- IF '${PRICE}' != '' -->  ${PRICE}<!-- ELSE -->-<!-- END IF --></td>
+        <td><!-- IF '${PRICE}' != '' --><a href="./?t=edit_url_price&id=${ID}">${PRICE}</a><!-- ELSE -->-<!-- END IF --></td>
         <!-- END shops_row -->
     </tr>
     <!-- END cars_row -->

@@ -1,7 +1,7 @@
 <?php
 
 //Error_Reporting(0); // set error reporting level
-define("DEBUG", 1);
+define("DEBUG", 0);
 
 $cmspaths = array(
     'core' => 'sys/core',

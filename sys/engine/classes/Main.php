@@ -41,7 +41,7 @@ class Main
      */
     public static function checkUrl($url)
     {
-        if (!preg_match("/^(?:http\:\/\/)?[-0-9a-z_\.]+\.([a-z]{2,6})$/i", $url)){
+        if (!preg_match("/^(?:https?\:\/\/)?[-0-9a-z_\.]+\.([a-z]{2,6})$/i", $url)){
             return false;
         } else {
             return true;

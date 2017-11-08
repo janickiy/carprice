@@ -37,4 +37,23 @@ class Model_add_url_price extends Model
     {
         return core::database()->insert($fields, core::database()->getTableName('price'));
     }
+
+    /**
+     * @param $shop_id
+     * @param $model_id
+     * @return bool
+     */
+    public function checkExistPrice($shop_id, $model_id)
+    {
+        if (is_numeric($shop_id) && is_numeric($model_id)) {
+            $query = "SELECT * FROM " . core::database()->getTableName('price') . " WHERE shop_id=" . $shop_id . " AND model_id=" . $model_id;
+            $result = core::database()->querySQL($query);
+
+            if (core::database()->getRecordCount($result) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
