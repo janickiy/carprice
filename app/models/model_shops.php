@@ -21,9 +21,7 @@ class Model_shops extends Model
     public function removeShop($id)
     {
         if (is_numeric($id)) {
-            $result = core::database()->delete(core::database()->getTableName('model'), "id=" . $id, '');
-
-            return $result ? core::database()->delete(core::database()->getTableName('price'), "model_id=" . $id, '') : false;
+            return core::database()->delete(core::database()->getTableName('shops'), "id=" . $id, '');
         }
     }
 }

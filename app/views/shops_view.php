@@ -14,7 +14,7 @@ $errors = [];
 
 if (Core_Array::getRequest('action') == 'remove') {
    if ($data->removeShop(Core_Array::getRequest('id'))) {
-       header("Location: ./?t=shops");
+      header("Location: ./?t=shops");
        exit();
    } else {
        $errors[] = 'Ошибка веб приложения! Действия не были выполнены.';
