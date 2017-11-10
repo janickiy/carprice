@@ -40,6 +40,7 @@ if (Core_Array::getRequest('action')) {
                        'url' => $url[$i],
                        'model_id' => $model_id[$i],
                        'created_at' => date("Y-m-d H:i:s"),
+                       'updated_at' => '0000-00-00 00:00:00',
                        'status' => 'no',
                    ];
                    $data->addUrlPrice($fields);

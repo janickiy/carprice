@@ -12,15 +12,16 @@
 <!-- INCLUDE success.tpl -->
 <!-- INCLUDE errors.tpl -->
 <p>Марка: ${CAR}</p>
+
+<div class="form-group">
+    <input class="btn btn-default" id="add_field" type="button" value=" + ">
+</div>
+
 <form id="modelsForm" method="POST" action="${ACTION}">
     <input type="hidden" name="id" value="${ID}">
     <div class="form-group">
         <label for="name">Модель</label>
         <input class="form-control" type="text" name="name[]">
-    </div>
-
-    <div class="form-group">
-        <input class="btn btn-default" id="add_field" type="button" value=" + ">
     </div>
 
     <input type="submit" class="btn btn-success" name="action" value="добавить">

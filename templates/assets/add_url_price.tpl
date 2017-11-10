@@ -94,9 +94,10 @@
 <p>« <a href="./">назад</a></p>
 <!-- INCLUDE errors.tpl -->
 <!-- INCLUDE success.tpl -->
-
+<div class="form-group">
+    <input class="btn btn-default" id="add_field" type="button" value=" + ">
+</div>
 <form id="priceForm" method="POST" action="${ACTION}">
-
     <div class="row_block">
         <input id="model_id_0" type="hidden" name="model_id[]" value="">
         <div class="form-group">
@@ -109,10 +110,6 @@
            <label for="url">URL адрес страницы с ценой</label>
            <input type="text" name="url[]" value="" class="form-control" autocomplete="off">
         </div>
-    </div>
-
-    <div class="form-group">
-        <input class="btn btn-default" id="add_field" type="button" value=" + ">
     </div>
 
     <input type="submit" class="btn btn-success" name="action" value="добавить">

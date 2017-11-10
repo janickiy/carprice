@@ -23,7 +23,7 @@ if (!flock($fh, LOCK_EX | LOCK_NB)){
 	exit('Script is already running');
 }
 
-$query = "SELECT *, p.id AS id, p.url AS url FROM " . $ConfigDB["prefix"] . "price p LEFT JOIN " . $ConfigDB["prefix"] . "shops s ON s.id=p.shop_id";
+$query = "SELECT *, p.id AS id, p.url AS url FROM " . $ConfigDB["prefix"] . "price p LEFT JOIN " . $ConfigDB["prefix"] . "shops s ON s.id=p.shop_id WHERE updated_at < NOW() - INTERVAL '1' DAY";
 $result = $dbh->query($query);
 
 while($row = $result->fetch_array()) {
