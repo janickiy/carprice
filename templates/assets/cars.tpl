@@ -14,7 +14,7 @@
                     <td>
                         <p class="fa fa-angle-right"> ${NAME} + <a href="./?t=add_model&car_id=${ID}">добавить модель</a></p><br>
                         <!-- BEGIN row_model -->
-                        <input type="checkbox" name="activate[]" value="${ID}"> ${NAME} <br>
+                        <input type="checkbox" name="activate[]" value="${ID}"> ${NAME} <a href="./?t=edit_model&id=${ID}" class="fa fa-edit"></a><br>
                         <!-- END row_model -->
                     </td>
                     <td></td>
