@@ -19,7 +19,11 @@
         <label class="radio-inline"> <input class="CityChange" type="radio" value="2" <!-- IF '${CITY}' == '2' -->checked="checked"<!-- END IF --> name="city">Санкт-Петербург </label>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-lg-12">
+        <p class="text-right"><span class="IconExcel"></span><a title="скачать" href="./?t=price">скачать</a></p>
+    </div>
+</div>
 <table width="100%" class="table table-striped table-bordered table-hover tablesaw-swipe"  data-tablesaw-mode="swipe">
     <thead>
     <tr>

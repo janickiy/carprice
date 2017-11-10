@@ -1,6 +1,6 @@
 <?php
 
-error_reporting( E_ERROR );
+error_reporting(0);
 
 define('CP', TRUE);
 define('SYS_ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
