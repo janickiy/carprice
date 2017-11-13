@@ -36,11 +36,11 @@
     </thead>
     <tbody>
     <!-- BEGIN cars_row -->
-    <tr>
+    <tr >
         <td class="title">${CAR}</td>
         <td class="title">${MODEL}</td>
         <!-- BEGIN shops_row -->
-        <td><!-- IF '${PRICE}' != '' --><a href="./?t=edit_url_price&id=${ID}">${PRICE}</a><!-- ELSE -->-<!-- END IF --></td>
+        <td  <!-- IF '${STATUS}' == 'no' -->class="danger"<!-- END IF -->><!-- IF '${PRICE}' != '' --><a href="./?t=edit_url_price&id=${ID}">${PRICE}</a><!-- ELSE -->-<!-- END IF --></td>
         <!-- END shops_row -->
     </tr>
     <!-- END cars_row -->

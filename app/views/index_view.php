@@ -40,7 +40,9 @@ foreach ($data->getModels($search) as $row) {
         $rowShop = $rowCar->fetch('shops_row');
         $rowShop->assign('PRICE', $priceInfo['price']);
         $rowShop->assign('URL', $priceInfo['url']);
+        $rowShop->assign('STATUS', $priceInfo['status']);
         $rowShop->assign('ID', $priceInfo['id']);
+
         $rowCar->assign('shops_row', $rowShop);
     }
 
