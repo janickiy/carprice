@@ -23,9 +23,7 @@ class Model_price extends Model
 
         $query = "SELECT *, c.name AS car, m.name AS model, m.id AS model_id FROM " . core::database()->getTableName('model') . " m
                     LEFT JOIN " . core::database()->getTableName('cars') . " c ON c.id=m.car_id
-                    
                     ORDER BY c.name
-                    LIMIT 20
                     ";
 
         $result = core::database()->querySQL($query);
