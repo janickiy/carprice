@@ -2,42 +2,61 @@
 
 ob_end_clean();
 
-include 'vendor/PHPExcel/PHPExcel.php';
+core::requireEx('libs', "PHPExcel/PHPExcel.php");
 
-$ext = 'xls';
-$filename = 'emailexport222.xls';
+$city = isset($_COOKIE["city"]) && $_COOKIE["city"] ? $_COOKIE["city"] : 1;
 
-$pExcel = new PHPExcel;
-$pExcel->setActiveSheetIndex(0);
-$aSheet = $pExcel->getActiveSheet();
-$aSheet->setTitle('Цены');
-
-$aSheet->setCellValue('','Марка');
-$aSheet->setCellValue('','Модель');
+$dataArray1 = [['Марка','Модель',],];
+$dataArray2 = [];
 
 foreach ($data->getShops($city) as $row) {
-    $rowShop = $tpl->fetch('shops_header_row');
-    $rowShop->assign('NAME', $row['name']);
-    $rowShop->assign('URL', $row['url']);
-    $tpl->assign('shops_header_row', $rowShop);
+    $dataArray2[] = $row['name'];
+}
+
+$dataArray = [];
+$dataArray[0] = array_merge($dataArray1[0], $dataArray2);
+
+$dataArray4 = [];
+$dataArray3 = [];
+$i = 0;
+foreach ($data->getModels() as $row) {
+    $i++;
+    $dataArray4 = [[$row['car'],$row['model']],] ;
+    $dataArray5 = [];
+
+    foreach ($data->getShops($city) as $row_shop) {
+        $priceInfo = $data->getPriceInfo($row_shop['id'],$row['model_id']);
+        $dataArray5[] = $priceInfo['price'];
+    }
+
+    $dataArray[$i] = array_merge($dataArray4[0], $dataArray5);
+
+    unset($dataArray4);
+    unset($dataArray5);
 }
 
 
+// create php excel object
+$doc = new PHPExcel();
 
+// set active sheet
+$doc->setActiveSheetIndex(0);
 
+// read data to active sheet
+$doc->getActiveSheet()->fromArray($dataArray);
 
-$aSheet->getColumnDimension('A')->setWidth(20);
-$aSheet->getColumnDimension('B')->setWidth(30);
-
-include 'vendor/PHPExcel/PHPExcel/Writer/Excel5.php';
-
-$objWriter = new PHPExcel_Writer_Excel5($pExcel);
-
-
+//save our workbook as this file name
+$filename = 'just_some_random_name.xls';
+//mime type
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="logstat_.xls"');
-header('Cache-Control: max-age=0');
+//tell browser what's the file name
+header('Content-Disposition: attachment;filename="' . $filename . '"');
+
+header('Cache-Control: max-age=0'); //no cache
+//save it to Excel5 format (excel 2003 .XLS file), change this to 'Excel2007' (and adjust the filename extension, also the header mime type)
+//if you want to save it as .XLSX Excel 2007 format
+
+$objWriter = PHPExcel_IOFactory::createWriter($doc, 'Excel5');
+
+//force user to download the Excel file without writing it to server's HD
 $objWriter->save('php://output');
-exit;
-
-
