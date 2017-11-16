@@ -53,7 +53,7 @@ $tpl->assign('URL', Core_Array::getPost('url') ? Core_Array::getPost('url')  : $
 $tpl->assign('TEMPLATE', Core_Array::getPost('template') ? Core_Array::getPost('template')  : $row['template']);
 $tpl->assign('POS', Core_Array::getPost('pos') ? Core_Array::getPost('pos')  : $row['pos']);
 $tpl->assign('CITY', Core_Array::getPost('city') ? Core_Array::getPost('city')  : $row['city']);
-
+$tpl->assign('ID', Core_Array::getRequest('id'));
 
 if (!empty($errors)) {
     $errorBlock = $tpl->fetch('show_errors');
